@@ -21,5 +21,11 @@ import mock.views as mock
 urlpatterns = [
     url(r'^accounts/', include(auth_urls, namespace='accounts')),
     url(r'^admin/', admin.site.urls),
-    url(r'^database/([\w-]+)/$', mock.database, name='add2'),
+
+
+    url(r'^database/$', mock.database_list, name='database_list'),
+    url(r'^database/(\d+)/$', mock.database_item, name='database_item'),
+
+    url(r'^table/$', mock.table_list, name='table_list'),
+    url(r'^table/(\d+)/$', mock.table_item, name='table_item'),
 ]
